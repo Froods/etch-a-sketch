@@ -1,0 +1,9 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gridSquare {
+    width: 6.25%;
+    padding-top: 6.25%;
+}
