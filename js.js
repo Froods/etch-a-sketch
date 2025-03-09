@@ -15,7 +15,7 @@ function drawSquares() {
 
         for (let j = 0; j < nSquares; j++) {
             const gridSquare = document.createElement("div");
-            gridSquare.setAttribute("style", `width: ${squareWidth}; padding-top: ${squareWidth}`);
+            gridSquare.setAttribute("style", `width: ${squareWidth}; padding-top: ${squareWidth}; opacity: 0;`);
             gridSquare.setAttribute("class", "gridSquare")
             container.appendChild(gridSquare);
         }
@@ -32,11 +32,18 @@ function deleteSquares() {
 
 }
 
+function randValue(max) {
+    return (Math.random() * max).toFixed();
+}
+
 drawSquares();
 
 container.addEventListener('mouseover', function(event) {
     if (event.target && event.target.classList.contains('gridSquare')) {
-        event.target.style.backgroundColor = "black";
+        event.target.style.backgroundColor = `rgb(${randValue(255)},${randValue(255)},${randValue(255)})`;
+
+        let opacityIncrement = Number(event.target.style.getPropertyValue("opacity")) + 0.1;
+        event.target.style.opacity = `${opacityIncrement}`;
     }
 });
 
